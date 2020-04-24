@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Hospitals</h2>
+    {% for hospi in hospitals %}
+        <h3><a href="/patients/{{ hospi._id }}">{{ hospi.name }}</a></h3>
+        <p>{{ hospi.city }}</p>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}

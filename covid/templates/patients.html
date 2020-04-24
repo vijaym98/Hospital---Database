@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>{{ hospital_title }}</h2>
+    <a href="/patients/new/{{ hospital_id }}"><button class="btn btn-primary">Add patient information</button></a>
+    <a href="/hospitals"><button class="btn btn-primary">Back to hospitals</button></a>
+    {% if patients|length > 0 %}
+        {% for patient in patients %}
+            <h3>{{ patient.name }}</h3>
+            <p>Admitted on {{patient.created_date}}</p>
+            <p>{{ patient.details }}</p>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <h4>There are no patients in this hospital</h4>
+    {% endif %}
+</div>
+{% endblock %}
